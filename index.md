@@ -2,4 +2,4 @@
 
 ### Personalizacion de Linux
 
-[Openbox](linux/openbox/config.md)
+- [Personalizacion de Openbox](linux/openbox/config.md)
