@@ -35,7 +35,7 @@ Nos sacara un mensaje de aviso para aceptar la conexión remota y escribiremos `
 
 Creamos nuestro repositorio en la web de `gitlab`, vamos al botón azul de la parte superior derecho que dice `code` y copiamos la `url` que dice `Clone with SSH`
 
-	NOTA: ya deberías tener configurados estos parámetros:
+Configura los siguiente parámetros antes de continuar si es que aún no lo haz hecho:
 ```sh
 git config --global user.name "<username>"
 git config --global user.email "<email>"
