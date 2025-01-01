@@ -33,9 +33,7 @@ ssh -T git@gitlab.com
 ```
 Nos sacara un mensaje de aviso para aceptar la conexión remota y escribiremos `yes` y daremos `ENTER`. Si todo sale bien, nos mandará un mensaje de bienvenida.
 
-En la página de nuestro repositorio, iremos al apartado de `settings`, en el menú que se desplega daremos en `repository`, nos abrirá una página en la cual vendrá una lista de opciones, iremos a donde dice `protected branches` y habilitaremos `Allowed to force push` 
-
-Creamos nuestro repositorio en la web de `gitlab`, vamos al botón azul de la parte superior derecho que dice `code` y copiamos la `url` que dice `Clone with SSH`
+Creamos nuestro repositorio en la web de `gitlab`. En la página de nuestro repositorio, iremos al apartado de `settings`, en el menú que se desplega daremos en `repository`, nos abrirá una página en la cual vendrá una lista de opciones, iremos a donde dice `protected branches` y habilitaremos `Allowed to force push`. En la página principal de nuestro repositorio, vamos al botón azul de la parte superior derecho que dice `code` y copiamos la `url` que dice `Clone with SSH`
 
 Configura los siguiente parámetros antes de continuar si es que aún no lo haz hecho:
 ```sh
@@ -49,7 +47,15 @@ git init
 git add .
 git commit -m "first commit"
 git branch -M main
+```
+
+Pegaremos la `url` que copiamos en `Clone with SSH` por delante del comando para agregar el repositorio remoto:
+```sh
 git remote add gitlab git@gitlab.com:<group>/<repo_name>.git
+```
+
+Y haremos un `push` de manera forzada poniendo el flag `-uf`:
+```
 git push -uf gitlab main
 ```
 Esto debería subir en automático sin pedirnos usuario y contraseña.
