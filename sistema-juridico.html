@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión para Despachos Jurídicos - Roy Quintanar</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #818cf8;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --accent-color: #3b82f6;
+            --accent-light: #93c5fd;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-header {
+            padding: 5rem 0 3rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .project-content {
+            padding: 4rem 0;
+        }
+        
+        .project-image {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tech-badge {
+            background-color: #e2e8f0;
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .feature-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-title {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-subtitle {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .module-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .module-card .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            font-weight: 600;
+            padding: 1rem 1.25rem;
+        }
+        
+        .audience-item {
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f1f5f9;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .audience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audience-item h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .trend-item {
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            background-color: #f8fafc;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Topbar/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Roy Quintanar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Sistema de Gestión para Despachos Jurídicos</h1>
+            <p class="lead mb-0">Una plataforma integral diseñada específicamente para optimizar las operaciones de bufetes legales y despachos jurídicos</p>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <img src="imgs/legal2.png" alt="Sistema de Gestión para Despachos Jurídicos" class="project-image mb-5">
+                    
+                    <h3 class="mb-4">Descripción General</h3>
+                    <p>El Sistema de Gestión para Despachos Jurídicos es una plataforma integral diseñada específicamente para optimizar las operaciones de bufetes legales y despachos jurídicos. Esta solución tecnológica aborda los desafíos únicos que enfrentan los profesionales del derecho, incluyendo la gestión de expedientes, seguimiento de audiencias, administración de documentos legales, y comunicación con clientes.</p>
+                    
+                    <p class="mb-5">Nuestra plataforma se distingue por su enfoque en la seguridad, eficiencia y adaptabilidad a las necesidades específicas del sector legal en países hispanohablantes. Con un modelo de negocio basado en suscripción, ofrecemos diferentes niveles de servicio para adaptarnos a despachos de todos los tamaños, desde profesionales independientes hasta grandes firmas con múltiples departamentos.</p>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <h3 class="mb-4">Mercado Objetivo</h3>
+                            <div class="audience-item">
+                                <h5><i class="bi bi-building me-2"></i>Despachos jurídicos pequeños y medianos</h5>
+                                <p class="mb-0">Firmas con 1-50 abogados que buscan optimizar sus operaciones</p>
+                            </div>
+                            <div class="audience-item">
+                                <h5><i class="bi bi-briefcase me-2"></i>Departamentos legales corporativos</h5>
+                                <p class="mb-0">Equipos legales internos de empresas y corporaciones</p>
+                            </div>
+                            <div class="audience-item">
+                                <h5><i class="bi bi-person me-2"></i>Abogados independientes</h5>
+                                <p class="mb-0">Profesionales que trabajan por cuenta propia</p>
+                            </div>
+                            <div class="audience-item">
+                                <h5><i class="bi bi-file-earmark-text me-2"></i>Notarías y servicios legales especializados</h5>
+                                <p class="mb-0">Servicios legales con necesidades específicas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h3 class="mb-4">Tendencias del Mercado</h3>
+                            <div class="trend-item">
+                                <p class="mb-0"><strong>Digitalización del sector legal</strong> - Creciente adopción de soluciones tecnológicas</p>
+                            </div>
+                            <div class="trend-item">
+                                <p class="mb-0"><strong>Soluciones en la nube</strong> - Mayor demanda de accesibilidad desde cualquier lugar</p>
+                            </div>
+                            <div class="trend-item">
+                                <p class="mb-0"><strong>Protección de datos</strong> - Necesidad de cumplir con regulaciones estrictas</p>
+                            </div>
+                            <div class="trend-item">
+                                <p class="mb-0"><strong>IA y automatización</strong> - Aumento en la adopción para procesos legales</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4 text-center">Módulos del Sistema</h3>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-shield-lock me-2"></i>Autenticación y Seguridad
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Autenticación multifactor</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de roles y permisos</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Seguridad avanzada</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Cifrado de datos sensibles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-folder me-2"></i>Gestión de Expedientes
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Creación y seguimiento de expedientes</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión documental</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Seguimiento de actuaciones</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Acceso para clientes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-calendar-event me-2"></i>Calendario y Audiencias
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Calendario integrado</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de audiencias</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Plazos procesales</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Sincronización con Google Calendar y Outlook</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-file-earmark-text me-2"></i>Escritos y Documentos
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Editor de documentos</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Biblioteca de plantillas</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de firmas</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Control de versiones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-cash-coin me-2"></i>Finanzas y Facturación
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Registro de horas</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Facturación</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Reportes financieros</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Seguimiento de pagos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-chat-dots me-2"></i>Chatbot y Asistencia
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Chatbot para clientes</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Asistente para abogados</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Búsqueda de jurisprudencia</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Análisis preliminar de documentos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-gear me-2"></i>Administración y Configuración
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de usuarios</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Configuración del despacho</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Respaldo y recuperación</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Integración con sistemas externos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-bell me-2"></i>Notificaciones
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sistema de notificaciones</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Configuración personalizada</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Alertas por email</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Notificaciones push en móviles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-graph-up me-2"></i>Reportes y Análisis
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Características principales:</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Cuadros de mando</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Reportes personalizados</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Análisis predictivo</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Métricas clave de rendimiento</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4">Características Detalladas</h3>
+                    
+                    <div class="accordion mb-5" id="featuresAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="bi bi-shield-lock me-2"></i>Autenticación y Seguridad
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#featuresAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Autenticación multifactor</h5>
+                                        <ul>
+                                            <li>Inicio de sesión con contraseña</li>
+                                            <li>Verificación por email o SMS</li>
+                                            <li>Autenticación biométrica (en dispositivos compatibles)</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Gestión de roles y permisos</h5>
+                                        <ul>
+                                            <li>Roles predefinidos (administrador, socio, asociado, junior, cliente)</li>
+                                            <li>Permisos personalizables por módulo</li>
+                                            <li>Registro de actividad y auditoría</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Seguridad avanzada</h5>
+                                        <ul>
+                                            <li>Bloqueo por intentos fallidos</li>
+                                            <li>Políticas de contraseñas robustas</li>
+                                            <li>Cifrado de datos sensibles</li>
+                                            <li>Sesiones con tiempo de expiración configurable</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="bi bi-folder me-2"></i>Gestión de Expedientes
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#featuresAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Creación y seguimiento de expedientes</h5>
+                                        <ul>
+                                            <li>Información básica del caso</li>
+                                            <li>Asignación de responsables</li>
+                                            <li>Etiquetas y categorización</li>
+                                            <li>Estados personalizables</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Gestión documental</h5>
+                                        <ul>
+                                            <li>Almacenamiento de documentos por expediente</li>
+                                            <li>Control de versiones</li>
+                                            <li>Búsqueda por contenido</li>
+                                            <li>Plantillas de documentos legales</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Seguimiento de actuaciones</h5>
+                                        <ul>
+                                            <li>Registro cronológico de actuaciones</li>
+                                            <li>Asignación de tareas</li>
+                                            <li>Notificaciones de plazos</li>
+                                            <li>Historial completo del expediente</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Acceso para clientes</h5>
+                                        <ul>
+                                            <li>Portal de cliente con acceso restringido</li>
+                                            <li>Visualización de estado del caso</li>
+                                            <li>Comunicación directa con el abogado asignado</li>
+                                            <li>Repositorio de documentos compartidos</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="bi bi-calendar-event me-2"></i>Calendario y Audiencias
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#featuresAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Calendario integrado</h5>
+                                        <ul>
+                                            <li>Vista diaria, semanal y mensual</li>
+                                            <li>Filtros por tipo de evento y responsable</li>
+                                            <li>Sincronización con Google Calendar y Outlook</li>
+                                            <li>Recordatorios configurables</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Gestión de audiencias</h5>
+                                        <ul>
+                                            <li>Registro detallado de audiencias</li>
+                                            <li>Asignación de participantes</li>
+                                            <li>Preparación de documentación</li>
+                                            <li>Seguimiento de resultados</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Plazos procesales</h5>
+                                        <ul>
+                                            <li>Cálculo automático de plazos según jurisdicción</li>
+                                            <li>Alertas de vencimientos</li>
+                                            <li>Priorización visual</li>
+                                            <li>Reportes de cumplimiento</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <i class="bi bi-file-earmark-text me-2"></i>Escritos y Documentos
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#featuresAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Editor de documentos</h5>
+                                        <ul>
+                                            <li>Editor de texto enriquecido</li>
+                                            <li>Control de versiones</li>
+                                            <li>Colaboración en tiempo real</li>
+                                            <li>Comentarios y anotaciones</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Biblioteca de plantillas</h5>
+                                        <ul>
+                                            <li>Plantillas por tipo de procedimiento</li>
+                                            <li>Variables dinámicas</li>
+                                            <li>Personalización por despacho</li>
+                                            <li>Gestión de cláusulas frecuentes</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Gestión de firmas</h5>
+                                        <ul>
+                                            <li>Firma electrónica</li>
+                                            <li>Flujos de aprobación</li>
+                                            <li>Registro de firmas</li>
+                                            <li>Validación de documentos firmados</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <i class="bi bi-cash-coin me-2"></i>Finanzas y Facturación
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#featuresAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Registro de horas</h5>
+                                        <ul>
+                                            <li>Cronómetro integrado</li>
+                                            <li>Asignación a expedientes</li>
+                                            <li>Notas de actividad</li>
+                                            <li>Reportes por abogado y cliente</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Facturación</h5>
+                                        <ul>
+                                            <li>Generación automática de facturas</li>
+                                            <li>Múltiples métodos de cobro</li>
+                                            <li>Seguimiento de pagos</li>
+                                            <li>Recordatorios automáticos</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="feature-subtitle">Reportes financieros</h5>
+                                        <ul>
+                                            <li>Rentabilidad por expediente</li>
+                                            <li>Análisis de horas facturables</li>
+                                            <li>Proyecciones de ingresos</li>
+                                            <li>Exportación a sistemas contables</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4">Características Técnicas</h3>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-hdd-stack"></i>
+                                    </div>
+                                    <h5 class="card-title">Arquitectura</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Backend en FastAPI</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Frontend en Next.js</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Base de datos PostgreSQL</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Almacenamiento en la nube</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-shield-check"></i>
+                                    </div>
+                                    <h5 class="card-title">Seguridad</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Cifrado de datos en reposo y en tránsito</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Cumplimiento con GDPR y regulaciones locales</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Auditorías de seguridad periódicas</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Protección contra ataques comunes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-speedometer2"></i>
+                                    </div>
+                                    <h5 class="card-title">Rendimiento</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Optimización para grandes volúmenes de datos</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Tiempos de respuesta rápidos</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Escalabilidad horizontal</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Balanceo de carga automático</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-link-45deg"></i>
+                                    </div>
+                                    <h5 class="card-title">Integración</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>API RESTful documentada</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Webhooks para eventos clave</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Conectores con sistemas judiciales electrónicos</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Integración con herramientas ofimáticas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4 mt-5">Tecnologías Utilizadas</h3>
+                    <div class="mb-5">
+                        <span class="tech-badge">FastAPI</span>
+                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">ElasticSearch</span>
+                        <span class="tech-badge">JWT</span>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn btn-primary me-3">Demo en Vivo</a>
+                        <a href="#" class="btn btn-outline-primary">Solicitar Información</a>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="index.html#projects" class="btn btn-outline-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left me-2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                            </svg>
+                            Volver a Proyectos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Roy Quintanar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roy Quintanar | Developer</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #818cf8;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --blueprint-dark: #0a2e52;
+            --blueprint-light: #1e88e5;
+            --blueprint-grid: rgba(77, 208, 225, 0.2);
+            --blueprint-lines: rgba(77, 208, 225, 0.4);
+            --contact-blueprint-dark: #0a2e52;
+            --contact-blueprint-light: rgba(77, 208, 225, 0.1);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Blueprint Background Styles */
+        .hero-section {
+            padding: 6rem 0;
+            position: relative;
+            background-color: var(--blueprint-dark);
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(var(--blueprint-lines) 2px, transparent 2px),
+                linear-gradient(90deg, var(--blueprint-lines) 2px, transparent 2px);
+            background-size: 100px 100px;
+            z-index: 2;
+            animation: blueprintMove 30s linear infinite;
+        }
+        
+        @keyframes blueprintMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+        
+        .blueprint-circle {
+            position: absolute;
+            border: 2px dashed rgba(77, 208, 225, 0.5);
+            border-radius: 50%;
+            z-index: 3;
+            opacity: 0.7;
+        }
+        
+        .blueprint-circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+            animation: rotate 40s linear infinite;
+        }
+        
+        .blueprint-circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: 10%;
+            animation: rotate 30s linear infinite reverse;
+        }
+        
+        .blueprint-line {
+            position: absolute;
+            background-color: rgba(77, 208, 225, 0.3);
+            z-index: 3;
+        }
+        
+        .blueprint-line-1 {
+            width: 3px;
+            height: 200px;
+            top: 20%;
+            left: 15%;
+            transform: rotate(45deg);
+        }
+        
+        .blueprint-line-2 {
+            width: 3px;
+            height: 150px;
+            bottom: 10%;
+            right: 20%;
+            transform: rotate(-30deg);
+        }
+        
+        .blueprint-square {
+            position: absolute;
+            border: 2px dashed rgba(77, 208, 225, 0.5);
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 5%;
+            z-index: 3;
+            animation: rotate 35s linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .projects-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        /* Contact Section with Blueprint Background */
+        .contact-section {
+            padding: 5rem 0;
+            position: relative;
+            background-color: var(--contact-blueprint-dark);
+            color: white;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(var(--contact-blueprint-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--contact-blueprint-light) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+        
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(var(--contact-blueprint-light) 2px, transparent 2px),
+                linear-gradient(90deg, var(--contact-blueprint-light) 2px, transparent 2px);
+            background-size: 100px 100px;
+            z-index: 2;
+            animation: blueprintMove 30s linear infinite;
+        }
+        
+        .contact-section .section-title {
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .contact-section .section-title:after {
+            background-color: #4dd0e1;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Topbar/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Roy Quintanar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Circular Image and Blueprint Background -->
+    <section id="home" class="hero-section text-center">
+        <!-- Blueprint decorative elements -->
+        <div class="blueprint-circle blueprint-circle-1"></div>
+        <div class="blueprint-circle blueprint-circle-2"></div>
+        <div class="blueprint-line blueprint-line-1"></div>
+        <div class="blueprint-line blueprint-line-2"></div>
+        <div class="blueprint-square"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="mb-4">
+                    <img src="imgs/me.jpg" alt="Tu Foto de Perfil" class="profile-image">
+                </div>
+                <h1 class="display-4 fw-bold mb-4">Hola, soy <span style="color: #4dd0e1;">Roy Quintanar</span></h1>
+                <p class="lead mb-5">Soy un programador Full Stack Web especializado en Python y ReactJS. Me dedico a crear proyectos profesionales, modernos y funcionales con código limpio. Mi enfoque combina diseño atractivo con soluciones técnicas eficientes para ofrecer experiencias web excepcionales.</p>
+                <a href="#projects" class="btn btn-primary btn-lg">Ver Mis Proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="text-center section-title">Mis Proyectos</h2>
+            <div class="row g-4">
+                <!-- Project 1: SisAduanas -->
+                <div class="col-md-6">
+                    <div class="card project-card h-100">
+                        <img src="imgs/aduanas.png" class="card-img-top" alt="SisAduanas">
+                        <div class="card-body">
+                            <h5 class="card-title">SisAduanas</h5>
+                            <p class="card-text">Plataforma integral de gestión aduanera diseñada para optimizar y digitalizar todos los procesos relacionados con el comercio exterior.</p>
+                            <a href="sisaduanas.html" class="btn btn-primary">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Sistema Contable SaaS -->
+                <div class="col-md-6">
+                    <div class="card project-card h-100">
+                        <img src="imgs/contable.png" class="card-img-top" alt="Sistema Contable SaaS">
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema Contable SaaS</h5>
+                            <p class="card-text">Solución integral de contabilidad diseñada específicamente para el mercado mexicano, con facturación CFDI 4.0 y cumplimiento fiscal.</p>
+                            <a href="sistema-contable.html" class="btn btn-primary">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Sistema de Gestión para Despachos Jurídicos -->
+                <div class="col-md-6">
+                    <div class="card project-card h-100">
+                        <img src="imgs/legal1.png" class="card-img-top" alt="Sistema de Gestión para Despachos Jurídicos">
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema para Despachos Jurídicos</h5>
+                            <p class="card-text">Plataforma integral diseñada para optimizar las operaciones de bufetes legales, incluyendo gestión de expedientes, audiencias y facturación.</p>
+                            <a href="sistema-juridico.html" class="btn btn-primary">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Sistema de Gestión Veterinaria -->
+                <div class="col-md-6">
+                    <div class="card project-card h-100">
+                        <img src="imgs/vet1.png" class="card-img-top" alt="Sistema de Gestión Veterinaria">
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema de Gestión Veterinaria</h5>
+                            <p class="card-text">Plataforma digital integral para modernizar la administración de clínicas veterinarias, con funcionalidades específicas para cada rol.</p>
+                            <a href="sistema-veterinaria.html" class="btn btn-primary">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Blueprint Background (No Paper Airplanes) -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="text-center section-title">Contáctame</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="contact-form">
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="8e7dcadb-0499-4a30-b96a-6b81ba7c5f42">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Tu Nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Tu Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Asunto" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="message" name="message" placeholder="Tu Mensaje" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">                            
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Roy Quintanar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Smooth Scrolling for Navbar Links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

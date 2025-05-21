@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Contable SaaS - Roy Quintanar</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #818cf8;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-header {
+            padding: 5rem 0 3rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .project-content {
+            padding: 4rem 0;
+        }
+        
+        .project-image {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tech-badge {
+            background-color: #e2e8f0;
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .feature-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-title {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-subtitle {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .module-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .module-card .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            font-weight: 600;
+        }
+        
+        .audience-item {
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f1f5f9;
+            margin-bottom: 1rem;
+        }
+        
+        .audience-item h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Topbar/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Roy Quintanar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Sistema Contable SaaS</h1>
+            <p class="lead mb-0">Una solución integral de contabilidad diseñada específicamente para el mercado mexicano</p>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <img src="imgs/contable.png" alt="Sistema Contable SaaS" class="project-image mb-5">
+                    
+                    <h3 class="mb-4">Descripción General</h3>
+                    <p>El Sistema Contable SaaS es una solución integral diseñada específicamente para el mercado mexicano, ofreciendo una plataforma moderna, accesible y conforme a la normativa fiscal local. El sistema permite a empresas de todos los tamaños gestionar su contabilidad, facturación electrónica CFDI, impuestos y finanzas a través de una interfaz intuitiva y potente, reduciendo costos operativos y mejorando la eficiencia.</p>
+                    
+                    <div class="row mt-4 mb-5">
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent ps-0">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    Solución 100% adaptada a la normativa mexicana (SAT, CFDI 4.0, ISR, IVA)
+                                </li>
+                                <li class="list-group-item bg-transparent ps-0">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    Accesibilidad desde cualquier dispositivo y ubicación
+                                </li>
+                                <li class="list-group-item bg-transparent ps-0">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    Reducción de costos operativos (sin necesidad de infraestructura)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent ps-0">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    Actualizaciones automáticas de normativas fiscales
+                                </li>
+                                <li class="list-group-item bg-transparent ps-0">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    Soporte técnico especializado en contabilidad mexicana
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4">Público Objetivo</h3>
+                    <div class="row mb-5">
+                        <div class="col-md-6 mb-3">
+                            <div class="audience-item">
+                                <h5>Microempresas y autónomos</h5>
+                                <p class="mb-0">Solución básica y asequible para personas físicas</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="audience-item">
+                                <h5>PYMES</h5>
+                                <p class="mb-0">Funcionalidades completas a precio competitivo</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="audience-item">
+                                <h5>Grandes empresas</h5>
+                                <p class="mb-0">Solución personalizable con capacidades avanzadas</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="audience-item">
+                                <h5>Contadores y despachos contables</h5>
+                                <p class="mb-0">Gestión de múltiples clientes</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4">Características Principales</h3>
+                    
+                    <div class="feature-section">
+                        <h4 class="feature-title">1. Características Generales</h4>
+                        <ul>
+                            <li><strong>Interfaz moderna y responsiva:</strong> Acceso desde cualquier dispositivo</li>
+                            <li><strong>Multi-tenant:</strong> Arquitectura segura para múltiples empresas</li>
+                            <li><strong>Actualizaciones automáticas:</strong> Sin necesidad de mantenimiento por parte del usuario</li>
+                            <li><strong>Copias de seguridad automáticas:</strong> Protección de datos garantizada</li>
+                            <li><strong>Acceso basado en roles:</strong> Control granular de permisos</li>
+                            <li><strong>Auditoría completa:</strong> Registro de todas las acciones realizadas en el sistema</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-section">
+                        <h4 class="feature-title">2. Módulos Contables</h4>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-4">
+                                <div class="card module-card">
+                                    <div class="card-header py-3">
+                                        Contabilidad General
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">✓ Catálogo de cuentas mexicano</li>
+                                            <li class="mb-2">✓ Asientos contables automatizados</li>
+                                            <li class="mb-2">✓ Libro diario, mayor y balance</li>
+                                            <li class="mb-2">✓ Conciliación bancaria</li>
+                                            <li class="mb-2">✓ Cierre contable</li>
+                                            <li class="mb-2">✓ Estados financieros</li>
+                                            <li>✓ Contabilidad electrónica para SAT</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card module-card">
+                                    <div class="card-header py-3">
+                                        Facturación Electrónica (CFDI)
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">✓ CFDI 4.0 completo</li>
+                                            <li class="mb-2">✓ Timbrado automático</li>
+                                            <li class="mb-2">✓ Complementos CFDI</li>
+                                            <li class="mb-2">✓ Carta Porte</li>
+                                            <li class="mb-2">✓ Catálogos SAT</li>
+                                            <li class="mb-2">✓ Cancelación de CFDI</li>
+                                            <li>✓ Recepción de CFDI</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card module-card">
+                                    <div class="card-header py-3">
+                                        Gestión de Impuestos
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">✓ IVA (16%, 8% frontera, 0%, exento)</li>
+                                            <li class="mb-2">✓ ISR para personas físicas y morales</li>
+                                            <li class="mb-2">✓ IEPS según productos</li>
+                                            <li class="mb-2">✓ Retenciones (IVA, ISR, etc.)</li>
+                                            <li class="mb-2">✓ Declaraciones mensuales</li>
+                                            <li class="mb-2">✓ Declaración anual</li>
+                                            <li>✓ DIOT automática</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card module-card">
+                                    <div class="card-header py-3">
+                                        Tesorería
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">✓ Gestión de cuentas bancarias</li>
+                                            <li class="mb-2">✓ Conciliación automática</li>
+                                            <li class="mb-2">✓ Flujo de caja</li>
+                                            <li class="mb-2">✓ Pagos a proveedores</li>
+                                            <li class="mb-2">✓ Cobros a clientes</li>
+                                            <li>✓ Complemento de pagos CFDI 4.0</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card module-card">
+                                    <div class="card-header py-3">
+                                        Activos Fijos
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">✓ Registro completo de activos</li>
+                                            <li class="mb-2">✓ Depreciación automática</li>
+                                            <li class="mb-2">✓ Deducción inmediata</li>
+                                            <li class="mb-2">✓ Gestión de bajas y ventas</li>
+                                            <li class="mb-2">✓ Informes de activos</li>
+                                            <li>✓ Etiquetas y códigos QR</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card module-card">
+                                    <div class="card-header py-3">
+                                        Nómina
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">✓ CFDI de nómina 4.0</li>
+                                            <li class="mb-2">✓ Cálculo de impuestos</li>
+                                            <li class="mb-2">✓ Prestaciones</li>
+                                            <li class="mb-2">✓ IMSS e INFONAVIT</li>
+                                            <li class="mb-2">✓ PTU</li>
+                                            <li class="mb-2">✓ Finiquitos y liquidaciones</li>
+                                            <li>✓ Exportación para SUA</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-section">
+                        <h4 class="feature-title">3. Funcionalidades Específicas para México</h4>
+                        <ul>
+                            <li><strong>Contabilidad electrónica:</strong> XML para el SAT (catálogo, balanza, pólizas)</li>
+                            <li><strong>CFDI 4.0:</strong> Facturación, recibos de nómina, pagos, etc.</li>
+                            <li><strong>Carta Porte:</strong> Para transporte de mercancías</li>
+                            <li><strong>Complemento de comercio exterior:</strong> Para operaciones internacionales</li>
+                            <li><strong>REPSE:</strong> Gestión para empresas de subcontratación</li>
+                            <li><strong>Buzón tributario:</strong> Alertas y notificaciones</li>
+                            <li><strong>Régimen fiscal:</strong> Soporte para todos los regímenes (Simplificado, General, etc.)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-section">
+                        <h4 class="feature-title">4. Panel de Administración SaaS</h4>
+                        
+                        <div class="mb-3">
+                            <h5 class="feature-subtitle">Dashboard Administrativo</h5>
+                            <ul>
+                                <li>KPIs en tiempo real: Usuarios activos, ingresos, uso del sistema</li>
+                                <li>Gráficos interactivos: Tendencias y análisis</li>
+                                <li>Alertas y notificaciones: Problemas del sistema, picos de uso</li>
+                                <li>Calendario de eventos: Mantenimientos, actualizaciones</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h5 class="feature-subtitle">Gestión de Clientes</h5>
+                            <ul>
+                                <li>Directorio de empresas: Información completa de cada cliente</li>
+                                <li>Estadísticas de uso: Recursos utilizados por cliente</li>
+                                <li>Historial de soporte: Seguimiento de incidencias</li>
+                                <li>Gestión de suscripciones: Cambios de plan, renovaciones</li>
+                                <li>Acceso como cliente: Posibilidad de acceder como el usuario</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h5 class="feature-subtitle">Gestión Financiera</h5>
+                            <ul>
+                                <li>Facturación automática: Generación y envío de facturas</li>
+                                <li>Historial de pagos: Registro completo de transacciones</li>
+                                <li>Informes de ingresos: MRR, churn, LTV</li>
+                                <li>Gestión de impagos: Alertas y acciones automáticas</li>
+                                <li>Integración con pasarelas de pago: Múltiples opciones mexicanas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-section">
+                        <h4 class="feature-title">5. Panel de Usuario</h4>
+                        
+                        <div class="mb-3">
+                            <h5 class="feature-subtitle">Perfil de Usuario</h5>
+                            <ul>
+                                <li>Información personal: Gestión de datos de contacto</li>
+                                <li>Seguridad: Cambio de contraseña, 2FA</li>
+                                <li>Preferencias: Idioma, zona horaria, notificaciones</li>
+                                <li>Historial de actividad: Registro de acciones</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h5 class="feature-subtitle">Perfil de Empresa</h5>
+                            <ul>
+                                <li>Datos fiscales: RFC, razón social, régimen fiscal</li>
+                                <li>Certificado de sello digital (CSD): Gestión segura</li>
+                                <li>Configuración contable: Ejercicio fiscal, método de valoración</li>
+                                <li>Personalización: Logo, colores, plantillas de documentos</li>
+                                <li>Usuarios y permisos: Gestión de accesos</li>
+                                <li>Suscripción: Detalles del plan, historial de pagos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-section">
+                        <h4 class="feature-title">6. Seguridad y Cumplimiento</h4>
+                        <ul>
+                            <li><strong>Cifrado de datos:</strong> En reposo y en tránsito</li>
+                            <li><strong>Autenticación multifactor:</strong> Para todos los usuarios</li>
+                            <li><strong>Cumplimiento LFPDPPP:</strong> Protección de datos personales</li>
+                            <li><strong>Auditorías de seguridad:</strong> Regulares y documentadas</li>
+                            <li><strong>Backups geo-redundantes:</strong> Protección contra desastres</li>
+                            <li><strong>Certificaciones:</strong> ISO 27001, SOC 2</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-section">
+                        <h4 class="feature-title">7. Integraciones</h4>
+                        <ul>
+                            <li><strong>Bancos mexicanos:</strong> BBVA, Banorte, Santander, etc.</li>
+                            <li><strong>Pasarelas de pago:</strong> Conekta, Stripe, PayPal, Mercado Pago</li>
+                            <li><strong>PACs:</strong> Diversos proveedores autorizados de certificación</li>
+                            <li><strong>E-commerce:</strong> WooCommerce, Shopify, Mercado Libre</li>
+                            <li><strong>Importación/Exportación:</strong> Excel, CSV, XML</li>
+                            <li><strong>API completa:</strong> Para desarrollos a medida</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 class="mb-4 mt-5">Tecnologías Utilizadas</h3>
+                    <div class="mb-5">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Kubernetes</span>
+                        <span class="tech-badge">REST API</span>
+                        <span class="tech-badge">GraphQL</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">Microservicios</span>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn btn-primary me-3">Demo en Vivo</a>
+                        <a href="#" class="btn btn-outline-primary">Solicitar Información</a>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="index.html#projects" class="btn btn-outline-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left me-2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                            </svg>
+                            Volver a Proyectos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Roy Quintanar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</body>
+</html>

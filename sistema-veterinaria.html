@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Veterinaria - Roy Quintanar</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #818cf8;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --accent-color: #10b981;
+            --accent-light: #d1fae5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-header {
+            padding: 5rem 0 3rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .project-content {
+            padding: 4rem 0;
+        }
+        
+        .project-image {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tech-badge {
+            background-color: #e2e8f0;
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .feature-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-title {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-subtitle {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .module-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .module-card .card-header {
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            font-weight: 600;
+            padding: 1rem 1.25rem;
+        }
+        
+        .plan-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .plan-card .card-header {
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        .plan-basic .card-header {
+            background-color: #93c5fd;
+            color: #1e40af;
+        }
+        
+        .plan-pro .card-header {
+            background-color: #4f46e5;
+            color: white;
+        }
+        
+        .plan-enterprise .card-header {
+            background-color: #1e293b;
+            color: white;
+        }
+        
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+        
+        .role-section {
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: #f8fafc;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .feature-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .roadmap-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .roadmap-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+        
+        .roadmap-item:after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 15px;
+            width: 2px;
+            height: calc(100% + 15px);
+            background-color: var(--accent-color);
+        }
+        
+        .roadmap-item:last-child:after {
+            display: none;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--accent-color);
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--dark-color);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Topbar/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Roy Quintanar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Sistema de Gestión Veterinaria</h1>
+            <p class="lead mb-0">Una plataforma digital integral diseñada para modernizar y optimizar la administración de clínicas veterinarias</p>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <img src="imgs/vet2.png" alt="Sistema de Gestión Veterinaria" class="project-image mb-5">
+                    
+                    <h3 class="mb-4">Descripción General</h3>
+                    <p>El Sistema de Gestión Veterinaria es una plataforma digital integral diseñada para modernizar y optimizar la administración de clínicas veterinarias. Desarrollado con tecnologías de vanguardia (Next.js y Tailwind CSS), este sistema ofrece una solución completa que abarca todos los aspectos operativos de una clínica veterinaria, desde la gestión de citas y expedientes médicos hasta la administración financiera y la comunicación con los clientes.</p>
+                    
+                    <p class="mb-5">Nuestra solución se distingue por su enfoque centrado en roles específicos (administradores, veterinarios, enfermeros, recepcionistas y dueños de mascotas), proporcionando a cada usuario exactamente las herramientas que necesita para desempeñar sus funciones de manera eficiente.</p>
+                    
+                    <h3 class="mb-4 text-center">Planes de Suscripción</h3>
+                    <p class="text-center mb-4">Ofrecemos nuestro sistema bajo un modelo de suscripción SaaS (Software as a Service) con diferentes planes según el tamaño de la clínica y las funcionalidades requeridas:</p>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="card plan-card plan-basic h-100">
+                                <div class="card-header">
+                                    Plan Básico
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-center mb-4">Para clínicas pequeñas</h5>
+                                    <ul class="list-unstyled mb-4">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>1-2 veterinarios</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Funcionalidades esenciales</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Soporte por email</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Actualizaciones incluidas</li>
+                                    </ul>
+                                    <div class="mt-auto text-center">
+                                        <a href="#" class="btn btn-outline-primary">Ver detalles</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card plan-card plan-pro h-100">
+                                <div class="card-header">
+                                    Plan Profesional
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-center mb-4">Para clínicas medianas</h5>
+                                    <ul class="list-unstyled mb-4">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>3-5 veterinarios</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Todas las funcionalidades</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Soporte prioritario</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Capacitación incluida</li>
+                                    </ul>
+                                    <div class="mt-auto text-center">
+                                        <a href="#" class="btn btn-primary">Ver detalles</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card plan-card plan-enterprise h-100">
+                                <div class="card-header">
+                                    Plan Enterprise
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-center mb-4">Para hospitales y cadenas</h5>
+                                    <ul class="list-unstyled mb-4">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>6+ veterinarios</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Funcionalidades avanzadas</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Soporte 24/7</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Personalización a medida</li>
+                                    </ul>
+                                    <div class="mt-auto text-center">
+                                        <a href="#" class="btn btn-outline-light" style="background-color: #1e293b;">Ver detalles</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4">Características Generales</h3>
+                    
+                    <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-interface-tab" data-bs-toggle="pill" data-bs-target="#pills-interface" type="button" role="tab" aria-controls="pills-interface" aria-selected="true">Interfaz y UX</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-security-tab" data-bs-toggle="pill" data-bs-target="#pills-security" type="button" role="tab" aria-controls="pills-security" aria-selected="false">Seguridad</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-technical-tab" data-bs-toggle="pill" data-bs-target="#pills-technical" type="button" role="tab" aria-controls="pills-technical" aria-selected="false">Características Técnicas</button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content mb-5" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-interface" role="tabpanel" aria-labelledby="pills-interface-tab">
+                            <div class="p-4 bg-light rounded">
+                                <h4 class="mb-3">Interfaz y Experiencia de Usuario</h4>
+                                <ul class="feature-list">
+                                    <li>Diseño responsivo adaptado a todos los dispositivos</li>
+                                    <li>Interfaz intuitiva con navegación simplificada</li>
+                                    <li>Tema claro/oscuro personalizable</li>
+                                    <li>Dashboard personalizado según el rol del usuario</li>
+                                    <li>Notificaciones en tiempo real</li>
+                                    <li>Accesibilidad WCAG 2.1 AA</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-security" role="tabpanel" aria-labelledby="pills-security-tab">
+                            <div class="p-4 bg-light rounded">
+                                <h4 class="mb-3">Seguridad y Privacidad</h4>
+                                <ul class="feature-list">
+                                    <li>Autenticación multi-factor</li>
+                                    <li>Roles y permisos granulares</li>
+                                    <li>Encriptación de datos sensibles</li>
+                                    <li>Registro de auditoría de acciones</li>
+                                    <li>Cumplimiento con regulaciones de protección de datos</li>
+                                    <li>Sesiones seguras con timeout automático</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-technical" role="tabpanel" aria-labelledby="pills-technical-tab">
+                            <div class="p-4 bg-light rounded">
+                                <h4 class="mb-3">Características Técnicas</h4>
+                                <ul class="feature-list">
+                                    <li>Desarrollado con Next.js (App Router)</li>
+                                    <li>Estilizado con Tailwind CSS</li>
+                                    <li>Componentes UI con shadcn/ui</li>
+                                    <li>Arquitectura serverless</li>
+                                    <li>API RESTful para integraciones externas</li>
+                                    <li>Optimización de rendimiento y SEO</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4 text-center">Características Específicas por Rol</h3>
+                    
+                    <div class="role-section">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="role-icon">
+                                <i class="bi bi-person-gear"></i>
+                            </div>
+                            <h4 class="mb-0 ms-3">Administrador</h4>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-speedometer2 me-2"></i>Dashboard Administrativo</h5>
+                                <ul>
+                                    <li>KPIs y métricas de rendimiento</li>
+                                    <li>Gráficos de tendencias operativas y financieras</li>
+                                    <li>Vista general de la clínica</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-people me-2"></i>Gestión de Usuarios</h5>
+                                <ul>
+                                    <li>Creación y administración de cuentas de personal</li>
+                                    <li>Asignación de roles y permisos</li>
+                                    <li>Historial de actividad de usuarios</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-clipboard2-pulse me-2"></i>Gestión de Veterinarios</h5>
+                                <ul>
+                                    <li>Perfiles detallados de veterinarios</li>
+                                    <li>Especialidades y horarios</li>
+                                    <li>Métricas de rendimiento</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-cash-coin me-2"></i>Módulo Contable</h5>
+                                <ul>
+                                    <li>Libro de ingresos y egresos</li>
+                                    <li>Balance general</li>
+                                    <li>Reportes financieros personalizables</li>
+                                    <li>Análisis de rentabilidad por servicio</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="role-section">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="role-icon">
+                                <i class="bi bi-clipboard2-pulse"></i>
+                            </div>
+                            <h4 class="mb-0 ms-3">Veterinario</h4>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-speedometer2 me-2"></i>Dashboard de Veterinario</h5>
+                                <ul>
+                                    <li>Resumen de citas del día</li>
+                                    <li>Pacientes recientes</li>
+                                    <li>Tareas pendientes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-file-earmark-medical me-2"></i>Gestión de Registros Médicos</h5>
+                                <ul>
+                                    <li>Creación de notas clínicas</li>
+                                    <li>Prescripción de medicamentos</li>
+                                    <li>Solicitud de pruebas de laboratorio</li>
+                                    <li>Seguimiento de tratamientos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-calendar-check me-2"></i>Gestión de Citas</h5>
+                                <ul>
+                                    <li>Calendario personal de citas</li>
+                                    <li>Detalles de pacientes programados</li>
+                                    <li>Notas preparatorias para consultas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-journal-medical me-2"></i>Gestión de Mascotas</h5>
+                                <ul>
+                                    <li>Expedientes médicos detallados</li>
+                                    <li>Historial de tratamientos y procedimientos</li>
+                                    <li>Galería de imágenes médicas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="role-section">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="role-icon">
+                                <i class="bi bi-heart-pulse"></i>
+                            </div>
+                            <h4 class="mb-0 ms-3">Enfermero/a</h4>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-speedometer2 me-2"></i>Dashboard de Enfermería</h5>
+                                <ul>
+                                    <li>Lista de tareas pendientes</li>
+                                    <li>Alertas de pacientes</li>
+                                    <li>Recordatorios de tratamientos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-shield-plus me-2"></i>Gestión de Vacunas</h5>
+                                <ul>
+                                    <li>Registro de vacunaciones</li>
+                                    <li>Calendario de vacunación</li>
+                                    <li>Inventario de vacunas</li>
+                                    <li>Alertas de vencimiento</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-journal-medical me-2"></i>Gestión de Mascotas</h5>
+                                <ul>
+                                    <li>Registro de signos vitales</li>
+                                    <li>Seguimiento de peso y condición física</li>
+                                    <li>Notas de enfermería</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-capsule me-2"></i>Gestión de Tratamientos</h5>
+                                <ul>
+                                    <li>Administración de medicamentos</li>
+                                    <li>Seguimiento de tratamientos en curso</li>
+                                    <li>Registro de procedimientos realizados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="role-section">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="role-icon">
+                                <i class="bi bi-person-workspace"></i>
+                            </div>
+                            <h4 class="mb-0 ms-3">Recepcionista</h4>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-speedometer2 me-2"></i>Dashboard de Recepción</h5>
+                                <ul>
+                                    <li>Vista de citas del día</li>
+                                    <li>Llegadas pendientes</li>
+                                    <li>Pagos pendientes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-calendar-plus me-2"></i>Gestión de Citas</h5>
+                                <ul>
+                                    <li>Programación de nuevas citas</li>
+                                    <li>Reprogramación y cancelaciones</li>
+                                    <li>Recordatorios automáticos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-people me-2"></i>Gestión de Clientes</h5>
+                                <ul>
+                                    <li>Registro de nuevos clientes</li>
+                                    <li>Actualización de información de contacto</li>
+                                    <li>Historial de visitas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-credit-card me-2"></i>Gestión de Pagos</h5>
+                                <ul>
+                                    <li>Procesamiento de pagos</li>
+                                    <li>Generación de facturas</li>
+                                    <li>Registro de transacciones</li>
+                                    <li>Seguimiento de pagos pendientes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="role-section">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="role-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <h4 class="mb-0 ms-3">Dueño de Mascota</h4>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-speedometer2 me-2"></i>Dashboard de Propietario</h5>
+                                <ul>
+                                    <li>Resumen de mascotas registradas</li>
+                                    <li>Próximas citas</li>
+                                    <li>Tratamientos activos</li>
+                                    <li>Pagos pendientes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-calendar-plus me-2"></i>Gestión de Citas</h5>
+                                <ul>
+                                    <li>Solicitud de nuevas citas</li>
+                                    <li>Visualización de citas programadas</li>
+                                    <li>Cancelación o reprogramación</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-journal-medical me-2"></i>Historial Médico</h5>
+                                <ul>
+                                    <li>Acceso a expedientes médicos</li>
+                                    <li>Historial de vacunación</li>
+                                    <li>Resultados de laboratorio</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <h5 class="feature-subtitle"><i class="bi bi-credit-card me-2"></i>Gestión de Pagos</h5>
+                                <ul>
+                                    <li>Historial de facturas</li>
+                                    <li>Pagos pendientes</li>
+                                    <li>Métodos de pago guardados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4">Funcionalidades Adicionales</h3>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-6 mb-4">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-chat-dots me-2"></i>Comunicación
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sistema de mensajería interna</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Notificaciones por email y SMS</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Recordatorios automáticos de citas</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Alertas de seguimiento de tratamientos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-box-seam me-2"></i>Inventario
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de medicamentos e insumos</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Alertas de stock bajo</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Seguimiento de caducidades</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Registro de proveedores</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-graph-up me-2"></i>Reportes y Análisis
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Reportes personalizables</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Exportación en múltiples formatos</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Análisis de tendencias</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Métricas de rendimiento</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card module-card">
+                                <div class="card-header">
+                                    <i class="bi bi-link-45deg me-2"></i>Integraciones
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Laboratorios externos</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pasarelas de pago</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Calendarios externos</li>
+                                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Software contable externo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mb-4">Roadmap de Desarrollo Futuro</h3>
+                    
+                    <div class="roadmap-item">
+                        <h4>Fase 1 (Versión Actual)</h4>
+                        <p>Sistema base con todas las funcionalidades core, interfaz responsiva y accesible, y gestión completa de roles y permisos.</p>
+                    </div>
+                    
+                    <div class="roadmap-item">
+                        <h4>Fase 2 (Próxima Versión)</h4>
+                        <p>Aplicación móvil para dueños de mascotas, sistema de telemedicina veterinaria, integración con laboratorios externos y módulo avanzado de inventario.</p>
+                    </div>
+                    
+                    <div class="roadmap-item">
+                        <h4>Fase 3 (Futuro)</h4>
+                        <p>Inteligencia artificial para diagnóstico asistido, integración con dispositivos IoT de monitoreo de mascotas, marketplace de servicios veterinarios adicionales y plataforma de educación continua para veterinarios.</p>
+                    </div>
+                    
+                    <h3 class="mb-4 mt-5">Tecnologías Utilizadas</h3>
+                    <div class="mb-5">
+                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">Tailwind CSS</span>
+                        <span class="tech-badge">shadcn/ui</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">Prisma</span>
+                        <span class="tech-badge">Vercel</span>
+                        <span class="tech-badge">AWS</span>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn btn-primary me-3">Solicitar Demo</a>
+                        <a href="#" class="btn btn-outline-primary">Ver Planes</a>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="index.html#projects" class="btn btn-outline-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left me-2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                            </svg>
+                            Volver a Proyectos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Roy Quintanar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</body>
+</html>
